@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here
+</title>
+<style>
+	body {
+  		font-family: 'Lato', sans-serif;
+  		background-image:linear-gradient(#fe7763, #fc3a5d);
+	
+  	}
+	h1{
+		text-align: left;
+	}
+	.navig
+	{
+		background-image:black;
+		height:40;
+		width:1300;
+	}
+	.homebody
+	{
+		align:center;
+	}
+	.title
+	{
+		color:#ABF60C;
+	}
+	fieldset
+	{
+		align:center;
+	}
+	legend
+	{
+		color:#ABF60C;
+	}
+	.body2table
+	{
+		position:relative;
+		top:20px;
+		left:40px;
+	}
+	.paddings
+	{
+		font-size:20pt;
+		color:grey;
+	}
+	.row
+	{
+		background-color:white;
+		height:225;
+		width:1340;
+	}
+	.mobile
+	{
+		align:right;
+		color:teal;
+	}
+	.copyright
+	{
+		background-color:black;
+		color:white;
+	}
+		
+</style>
+</head>
+
+<body>
+<div class="navig">
+	<a href="#"><img src="images/electroware.jpg" height="70" width="120" align="left"></a>
+	<h2 align="center" style="color:teal;">ELECTROWARE</h2>
+	<ul align="right"><a href="login.html">Login</a> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+		
+	</ul>
+</div>
+<div class="slideshow-container">
+	<div class="mySlides fade" style="color:black">
+	  <center><img src="images/home1.png" style="width:170%;height:65%"></center>
+	</div>
+	<div class="mySlides fade" style="color:black">
+  		<center><img src="images/home2.png" style="width:200%;height:60%"></center>
+	</div>
+</div>
+</div> 
+<footer class="container-fluid text-center">
+    <div class="row">
+      <div class="col-sm-4" align="left">
+        <h3 align="left">Contact US:</h3><h4 class="mobile">Mobile No : 8328114123 , 9989752738</h4>
+		<h4>Our address and contact info here.</h4>
+		<h3>Connect</h3>
+	  </div>
+		<div class="col-sm-4" align="right">
+        <a href="https://www.facebook.com" class="fa fa-facebook"><img src="fb.jpg" height="40" width="40"></a>
+        <a href="https://twitter.com" class="fa fa-twitter"><img src="twitter.jpg" height="40" width="40"></a>
+        <a href="https://myaccount.google.com" class="fa fa-google">
+		<img src="gmail.jpg" height="40" width="40"></a>
+        <a href="https://www.instagram.com" class="fa fa-instagram"><img src="insta.jpg" height="40" width="40"></a>
+	  </div>
+    </div>
+</footer>
+  <div class="copyright">
+    <center><p>©2022 | All right reserved by @Vamshi @Ponni @Ananya @Abhishek</p></center>
+  </div>
+<script>
+var slideIndex = 0;
+showSlides();
+function showSlides()
+{
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+	for (i = 0; i < slides.length; i++)
+	{
+    	slides[i].style.display = "none";  
+	}
+  slideIndex++;
+	if (slideIndex > slides.length) 
+	{
+	  slideIndex = 1
+	}    
+  for (i = 0; i < dots.length; i++) 
+  {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "flex";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3000); // Change image every 2 seconds
+}
+</script>
+</body>
+</html>
