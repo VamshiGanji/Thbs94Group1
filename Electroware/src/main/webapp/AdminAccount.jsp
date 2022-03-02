@@ -35,6 +35,34 @@ select{
 						
 		</div>
 	</nav>
+	<center>	
+		<legend><h1>Customer Orders	</h1></legend>
+	
+	<table class="table table-border table-hover">
+					<thead><tr><th>Product Name</th>
+							<th>Price</th>
+							<th>Payment Type</th>
+							<th>Card Number</th>
+							<th>Phone</th>
+							<th>Expiry Date</th>
+							<th>Zipcode</th></tr>
+					</thead>
+					<tbody>
+					<c:forEach items="${molist}" var="molists"> 
+						
+						<div class="product-info">
+							<tr><th>${molists.proName}</th>
+							<th>${molists.price}</th>
+							<th>${molists.cardName}</th>
+							<th>${molists.cardNo}</th>
+							<th>${molists.phone}</th>
+							<th>${molists.expiryDate}</th>
+							<th>${molists.zipcode}</th></tr>
+						</div>
+				  </c:forEach> 
+					</tbody>
+				</table>	
+				</center>
 	
 	</body>
 </html>	

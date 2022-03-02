@@ -16,12 +16,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import com.torryharris.Electroware.database.InsertUserData;
 import com.torryharris.Electroware.database.Products;
+import com.torryharris.Electroware.database.PurchaseDetails;
+import com.torryharris.Electroware.model.MyOrders;
 import com.torryharris.Electroware.model.ProductDetails;
 import com.torryharris.Electroware.model.User;
 
 @Controller
 public class ElectrowareController 
 {
+
 	@PostMapping("/register")
 	public ModelAndView register(@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName,@RequestParam("phone") long phone,
 			@RequestParam("userName") String userName,@RequestParam("password") String password,@RequestParam("confirmPassword") String confirmPassword,
@@ -55,20 +58,33 @@ public class ElectrowareController
 		String i=iud.getUser(userName,password);
 		ModelAndView mv=new ModelAndView();
 		String str,s="admin";
-		System.out.println(i);
 		if(i==null)
 		{
-			str="invalid credentials";
+			str="Invalid Credentials";
 			mv.setViewName("userdoesnotexist.jsp");
 			mv.addObject("str",str);
 			return mv;		
 		}
 		else if(i.equals(s))
 		{
-			mv.setViewName("AdminAccount.jsp");
-			mv.addObject("i",i);
+			PurchaseDetails purde=new PurchaseDetails();
+			List<MyOrders> molist=purde.myOrders();
+			if(molist==null)
+			{
+				String s1="No Orders Available......";
+				mv.addObject("str",s1);
+				mv.setViewName("AdminAccount.jsp");
+				return mv;
+			}
+			else if(molist!=null)
+			{
+				mv.addObject("molist",molist);
+				mv.setViewName("AdminAccount.jsp");
+				return mv;
+			}	
 			return mv;
 		}
+		
 		List<ProductDetails> prolist=pd.viewProducts();
 		if(prolist!=null)
 		{
@@ -80,7 +96,6 @@ public class ElectrowareController
 		mv.setViewName("buyproducts.jsp");
 		mv.addObject("e",e);	
 		return mv;
-
 	}
 	
 	@GetMapping("buyproducts")

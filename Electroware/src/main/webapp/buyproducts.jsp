@@ -10,6 +10,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
+<!-- 
 <style>
 html,body,div,span,applet,object,iframe,
 h1,h2,h3,h4,h5,h6,p,blockquote,pre,
@@ -233,62 +235,57 @@ button {
 }
 
 </style>
-		
+	 -->	
+	 
 </head>
 <body>
 	
-<div class="navig">
-<nav style="background-color:white">
-		<form method="get" id="home" action="buyproducts.jsp">
-			<a href="buyproducts"><h2 align="left" style="font-weight:bold;color:black;">Welcome ${i}</h2></a>
-		</form>
+<div class="topnav">
+<nav style="background-color:HoneyDew">
+	<form method="get" id="home" action="buyproducts.jsp">
+		<a href="buyproducts"><h2 align="left" style="font-weight:bold;color:black;">Welcome ${i}</h2></a>
+	</form>
 	<div class="menu" align="right">			
-			<table><tr>
-				
-				<th><form method="get" id="myCart" action="userproducts.jsp">
-					<a href="userproducts">View Products</a>
-				</form></th>
-				
-				<th><form method="get" id="myOrders" action="myOrders.jsp">
-					<a href="myOrders">My Orders</a>
-				</form></th>
-				<th><form method="get" id="myCart" action="myCart.jsp">
-					<a href="myCart">My Cart</a>
-				</form></th>
+		<table><tr>
+			<th><form method="get" id="myCart" action="userproducts.jsp">
+				<a href="userproducts" class="active">View Products</a>
+			</form></th>
+			<th><form method="get" id="myOrders" action="myOrders.jsp">
+				<a href="myOrders">My Orders</a>
+			</form></th>
+			<th><form method="get" id="myCart" action="myCart.jsp">
+				<a href="myCart">My Cart</a>
+			</form></th>
 				<th><a href="login.html">logout</a></th></tr>
-			</table>
-		</div>
+		</table>
+	</div>
+</nav>
 </div>
-	</nav>
 	
 	
 	<h4 style="color:red">${e}</h4>
 					
-	<div class="product-card">
-			
-				<table class="table table-border table-hover">
-					<thead>
-					<c:forEach items="${prolist}" var="prolists"> 
-						
-						<div class="product-info">
-							<tr><th>${prolists.productName}</th></tr>
-							<tr><th>${prolists.productType}</th></tr>
-							<tr><th>${prolists.price}</th></tr>
-							<tr><th>${prolists.stock}</th></tr>
-							<tr><th>${prolists.description}</th></tr>
-				  			<tr><th><form action="payment.jsp" method="post"><input type="hidden" name="proName" value="${prolists.productName}">
-							<input type="hidden" name="proType" value="${prolists.productType}">
-							<input type="hidden" name="price" value="${prolists.price}">
-							<input type="hidden" name="stock" value="${prolists.stock}">
-							<input type="hidden" name="desc" value="${prolists.description}">
-				  			<input type="submit" name="cart" formaction="addToCart" value="addToCart">
-				  			<input type="submit" value="BuyNow"></form></th></tr>
-						</div>
+	<div class="product-card">	
+		<table class="table table-border table-hover" align="center">
+			<thead>
+				<c:forEach items="${prolist}" var="prolists"> 	
+					<div class="product-info">
+						<tr><th>${prolists.productName}</th></tr>
+						<tr><th>${prolists.productType}</th></tr>
+						<tr><th>${prolists.price}</th></tr>
+						<tr><th>${prolists.stock}</th></tr>
+						<tr><th>${prolists.description}</th></tr>
+				  		<tr><th><form action="payment.jsp" method="post"><input type="hidden" name="proName" value="${prolists.productName}">
+						<input type="hidden" name="proType" value="${prolists.productType}">
+						<input type="hidden" name="price" value="${prolists.price}">
+						<input type="hidden" name="stock" value="${prolists.stock}">
+						<input type="hidden" name="desc" value="${prolists.description}">
+				  		<input type="submit" name="cart" formaction="addToCart" value="addToCart">
+				  		<input type="submit" value="BuyNow"></form></th></tr>
+					</div>
 				  </c:forEach> 
-					</thead>
-				</table>
-						
-			
-		</div>
+			</thead>
+		</table>	
+	</div>
 </body>
 </html>

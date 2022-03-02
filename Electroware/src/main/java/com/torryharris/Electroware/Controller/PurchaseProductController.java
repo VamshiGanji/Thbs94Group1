@@ -21,7 +21,8 @@ import com.torryharris.Electroware.model.ProductDetails;
 @SessionAttributes("purchase")
 public class PurchaseProductController 
 {
-		List<MyOrders> molist=new ArrayList<MyOrders>();
+		
+	List<MyOrders> molist=new ArrayList<MyOrders>();
 		@PostMapping("/payment")
 		public ModelAndView purchase(@RequestParam("proName") String proName,
 				@RequestParam("price") int price,
@@ -120,7 +121,7 @@ public class PurchaseProductController
 			}
 			else if(i!=null)
 			{
-				mv.addObject("i",i);
+				//mv.addObject("i",i);
 				mv.setViewName("removeFromCart.jsp");
 				return mv;
 			}

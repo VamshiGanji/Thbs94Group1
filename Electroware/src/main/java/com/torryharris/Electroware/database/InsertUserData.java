@@ -47,7 +47,7 @@ public class InsertUserData
 			String psd=rs.getString("Password");
 			String role=rs.getString("Role");
 			String str="admin";
-			if(user.equals(userName)&&psd.equals(psd))
+			if(user.equals(userName)&&psd.equals(password))
 			{
 				if(role.equals(str))
 					return role;
